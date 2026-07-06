@@ -1,0 +1,662 @@
+/* ==========================================================================
+   Rumah Kasih Mary - Main Stylesheet
+   IMS458 Web Design and Development
+   ========================================================================== */
+
+/* Google Font import with fallback in font-family declarations below */
+@import url('https://fonts.googleapis.com/css2?family=Bilbo&family=Poppins:wght@500;600;700&family=Nunito:wght@400;600;700&family=Great+Vibes&family=Playfair+Display:ital@1&display=swap');
+
+/* ----- CSS Variables (colour palette) ----- */
+:root {
+    --clr-amber: #f1d4a2;       /* warm amber - primary accent */
+    --clr-sage: #151514;        /* soft sage green - secondary */
+    --clr-sage-dark: #363f36;   /* darker sage for hover states */
+    --clr-clay: #C96A4E;        /* warm clay - highlights / buttons */
+    --clr-cream: #FBF6EC;       /* page background */
+    --clr-cream-dark: #F1E7D3;  /* card / section background */
+    --clr-text: #3A3530;        /* main text colour */
+    --clr-white: #FFFFFF;
+
+    --font-heading: 'Poppins', Verdana, Geneva, sans-serif;
+    --font-body: 'Nunito', Tahoma, Geneva, sans-serif;
+
+    --radius: 14px;
+    --shadow: 0 6px 16px rgba(58, 53, 48, 0.12);
+    --transition: all 0.3s ease-in-out;
+}
+
+/* ----- Reset & base ----- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--clr-cream);
+    color: var(--clr-text);
+    line-height: 1.65;
+}
+
+video {
+    max-width: 100%;
+    display: block;
+}
+
+a {
+    text-decoration: none;
+    color: var(--clr-clay);
+    transition: var(--transition);
+}
+
+.wrapper {
+    width: 90%;
+    max-width: 1140px;
+    margin: 0 auto;
+}
+
+h1, h3, h4 {
+    font-family: var(--font-heading);
+    color: var(--clr-sage-dark);
+    line-height: 1.3;
+}
+
+h2 {
+    font-family: 'Bilbo', cursive;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+}
+
+h2.section-title {
+    font-size: 2rem;
+    margin-bottom: 8px;
+    text-align: center;
+}
+
+.section-subtitle {
+    text-align: center;
+    color: var(--clr-clay);
+    font-weight: 600;
+    margin-bottom: 34px;
+}
+
+section {
+    padding: 60px 0;
+}
+
+section:nth-of-type(even) {
+    background-color: var(--clr-cream-dark);
+}
+
+/* ----- Top info strip ----- */
+.top-strip {
+    background-color: var(--clr-sage-dark);
+    color: var(--clr-white);
+    font-size: 0.85rem;
+    padding: 6px 0;
+}
+
+.top-strip .wrapper {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.top-strip a {
+    color: var(--clr-white);
+}
+
+.top-strip a:hover {
+    color: var(--clr-amber);
+}
+
+/* ----- Header / banner ----- */
+header.site-header {
+    background-color: var(--clr-white);
+    box-shadow: var(--shadow);
+    position: sticky;
+    top: 0;
+    z-index: 50;
+}
+
+.banner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+    padding: 16px 0;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.brand img.logo {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    border: 3px solid var(--clr-amber);
+    object-fit: cover;
+    transition: var(--transition);
+}
+
+.brand img.logo:hover {
+    transform: rotate(8deg) scale(1.06);
+}
+
+.brand-text h1 {
+    font-size: 1.5rem;
+    color: var(--clr-sage-dark);
+}
+
+.brand-text p.slogan {
+    font-style: italic;
+    color: var(--clr-clay);
+    font-size: 0.95rem;
+}
+
+/* ----- Navigation ----- */
+nav.main-nav {
+    background-color: var(--clr-sage);
+}
+
+nav.main-nav ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+nav.main-nav ul li a {
+    display: block;
+    color: var(--clr-white);
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 0.95rem;
+    padding: 14px 22px;
+    position: relative;
+}
+
+nav.main-nav ul li a:hover,
+nav.main-nav ul li a.active {
+    background-color: var(--clr-sage-dark);
+    color: var(--clr-amber);
+}
+
+nav.main-nav ul li a::after {
+    content: "";
+    position: absolute;
+    left: 22px;
+    right: 22px;
+    bottom: 8px;
+    height: 2px;
+    background-color: var(--clr-amber);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: var(--transition);
+}
+
+nav.main-nav ul li a:hover::after {
+    transform: scaleX(1);
+}
+
+/* ----- Hero section ----- */
+.hero {
+    position: relative;
+    color: var(--clr-white);
+    text-align: center;
+    background: linear-gradient(rgba(58,53,48,0.45), rgba(58,53,48,0.55)),
+                url('../bnmarryno.png') center/cover no-repeat;
+    padding: 110px 20px;
+}
+
+.hero h2 {
+    color: var(--clr-white);
+    font-size: 4.2rem;
+    margin-bottom: 14px;
+}
+
+.hero p {
+    max-width: 640px;
+    margin: 0 auto 26px auto;
+    font-size: 1.1rem;
+}
+
+/* ----- Buttons ----- */
+.btn {
+    display: inline-block;
+    background-color: var(--clr-clay);
+    color: var(--clr-white);
+    font-family: var(--font-heading);
+    font-weight: 600;
+    padding: 12px 30px;
+    border-radius: 30px;
+    box-shadow: var(--shadow);
+    border: none;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.btn:hover {
+    background-color: var(--clr-amber);
+    color: var(--clr-text);
+    transform: translateY(-3px);
+}
+
+.btn-outline {
+    background-color: transparent;
+    border: 2px solid var(--clr-white);
+}
+
+.btn-outline:hover {
+    background-color: var(--clr-white);
+    color: var(--clr-sage-dark);
+}
+
+/* ----- Page header banner (inner pages) ----- */
+.page-banner {
+    background-color: var(--clr-sage);
+    color: var(--clr-white);
+    text-align: center;
+     background: linear-gradient(rgba(58,53,48,0.45), rgba(58,53,48,0.55)),
+                url('../bnmarryno.png') center/cover no-repeat;
+    padding: 110px 20px;
+}
+
+.page-banner h2 {
+    color: var(--clr-white);
+    font-size: 4.2rem;
+}
+
+.breadcrumb {
+    margin-top: 8px;
+    font-size: 0.9rem;
+}
+
+.breadcrumb a {
+    color: var(--clr-amber);
+}
+
+/* ----- Cards / grid layout ----- */
+.card-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 26px;
+    justify-content: center;
+}
+
+.card {
+    background-color: var(--clr-white);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    width: 300px;
+    transition: var(--transition);
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 14px 26px rgba(58, 53, 48, 0.2);
+}
+
+.card img {
+    width: 100%;
+    height: 190px;
+    object-fit: cover;
+    transition: var(--transition);
+}
+
+.card:hover img {
+    transform: scale(1.05);
+}
+
+.card-body {
+    padding: 18px 20px;
+}
+
+.card-body h3 {
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+}
+
+/* ----- Two column layout ----- */
+.two-col {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    align-items: center;
+}
+
+.two-col .col {
+    flex: 1 1 380px;
+}
+
+.two-col video {
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+}
+
+/* ----- Lists ----- */
+ul.styled-list,
+ol.styled-list {
+    margin-left: 22px;
+    margin-bottom: 18px;
+}
+
+ul.styled-list li,
+ol.styled-list li {
+    margin-bottom: 8px;
+}
+
+/* ----- Tables ----- */
+table.info-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: var(--clr-white);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    margin: 20px 0 30px 0;
+}
+
+table.info-table caption {
+    caption-side: top;
+    font-family: var(--font-heading);
+    font-weight: 600;
+    color: var(--clr-sage-dark);
+    padding: 10px;
+    text-align: left;
+}
+
+table.info-table th,
+table.info-table td {
+    padding: 12px 16px;
+    text-align: left;
+    border-bottom: 1px solid var(--clr-cream-dark);
+}
+
+table.info-table th {
+    background-color: var(--clr-sage);
+    color: var(--clr-white);
+    font-family: var(--font-heading);
+}
+
+table.info-table tr:hover td {
+    background-color: var(--clr-cream-dark);
+}
+
+/* ----- Gallery ----- */
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.gallery a {
+    display: block;
+    width: 220px;
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+}
+
+.gallery img {
+    height: 160px;
+    object-fit: cover;
+    transition: var(--transition);
+}
+
+.gallery a:hover img {
+    transform: scale(1.1);
+    filter: brightness(0.9);
+}
+
+/* ----- Stats strip ----- */
+.stats {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+    text-align: center;
+    color: var(--clr-white);
+    background-color: var(--clr-clay);
+    padding: 40px 0;
+}
+
+.stats .stat-box span {
+    display: block;
+    font-family: var(--font-heading);
+    font-size: 2.2rem;
+    font-weight: 700;
+}
+
+/* ----- Aside / sidebar boxes ----- */
+aside.info-box {
+    background-color: var(--clr-cream-dark);
+    border-left: 5px solid var(--clr-amber);
+    border-radius: var(--radius);
+    padding: 20px 24px;
+    margin: 20px 0;
+}
+
+aside.info-box h3 {
+    margin-bottom: 10px;
+}
+
+/* ----- Forms (Contact / Donation pledge) ----- */
+form.styled-form {
+    background-color: var(--clr-white);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 30px;
+    max-width: 620px;
+    margin: 0 auto;
+}
+
+form.styled-form label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 6px;
+    margin-top: 16px;
+    font-family: var(--font-heading);
+    color: var(--clr-sage-dark);
+}
+
+form.styled-form input,
+form.styled-form textarea,
+form.styled-form select {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #d8cdb8;
+    border-radius: 8px;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    background-color: var(--clr-cream);
+}
+
+form.styled-form input:focus,
+form.styled-form textarea:focus,
+form.styled-form select:focus {
+    outline: 2px solid var(--clr-amber);
+}
+
+form.styled-form button {
+    margin-top: 22px;
+}
+
+/* ----- Testimonial blocks ----- */
+.testimonial {
+    background-color: var(--clr-white);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 22px;
+    width: 300px;
+}
+
+.testimonial p.quote {
+    font-style: italic;
+    margin-bottom: 12px;
+}
+
+.testimonial p.author {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    color: var(--clr-clay);
+}
+
+/* ----- About Me page ----- */
+.profile-card {
+    background-color: var(--clr-white);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 34px;
+    text-align: center;
+}
+
+.profile-card img.profile-photo {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid var(--clr-amber);
+    margin: 0 auto 20px auto;
+}
+
+.profile-card table.info-table {
+    text-align: left;
+}
+
+/* ----- Footer ----- */
+footer.site-footer {
+    background-color: var(--clr-sage-dark);
+    color: var(--clr-cream);
+    padding: 34px 0 18px 0;
+    font-size: 0.9rem;
+}
+
+footer.site-footer .footer-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+footer.site-footer h4 {
+    color: var(--clr-amber);
+    margin-bottom: 10px;
+}
+
+footer.site-footer a {
+    color: var(--clr-cream);
+}
+
+footer.site-footer a:hover {
+    color: var(--clr-amber);
+}
+
+footer.site-footer .disclaimer {
+    border-top: 1px solid rgba(255,255,255,0.2);
+    margin-top: 14px;
+    padding-top: 14px;
+    font-size: 0.8rem;
+    text-align: center;
+    color: #d8d2c4;
+}
+
+/* ----- FAQ Accordion (pure CSS, checkbox trick, no JavaScript) ----- */
+.faq-list {
+    max-width: 760px;
+    margin: 0 auto;
+}
+
+.faq-item {
+    background-color: var(--clr-white);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    margin-bottom: 14px;
+    overflow: hidden;
+}
+
+.faq-item input[type="checkbox"] {
+    display: none;
+}
+
+.faq-item label {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 22px;
+    font-family: var(--font-heading);
+    font-weight: 600;
+    color: var(--clr-sage-dark);
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.faq-item label:hover {
+    background-color: var(--clr-cream-dark);
+}
+
+.faq-item label::after {
+    content: "+";
+    font-size: 1.3rem;
+    color: var(--clr-clay);
+    transition: var(--transition);
+    flex-shrink: 0;
+    margin-left: 12px;
+}
+
+.faq-item input[type="checkbox"]:checked + label::after {
+    transform: rotate(135deg);
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    padding: 0 22px;
+    transition: max-height 0.35s ease, padding 0.35s ease;
+    color: var(--clr-text);
+}
+
+.faq-item input[type="checkbox"]:checked ~ .faq-answer {
+    max-height: 220px;
+    padding: 0 22px 20px 22px;
+}
+
+/* ----- Responsive ----- */
+@media (max-width: 768px) {
+    .banner {
+        justify-content: center;
+        text-align: center;
+    }
+
+    nav.main-nav ul {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .hero h2 {
+        font-size: 2rem;
+    }
+
+    .two-col {
+        flex-direction: column;
+    }
+
+    footer.site-footer .footer-grid {
+        flex-direction: column;
+        text-align: center;
+    }
+}
