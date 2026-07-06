@@ -215,7 +215,7 @@ nav.main-nav ul li a:hover::after {
     color: var(--clr-white);
     text-align: center;
     background: linear-gradient(rgba(58,53,48,0.45), rgba(58,53,48,0.55)),
-                url('../bnmarryno.png') center/cover no-repeat;
+                url('bnmarryno.png') center/cover no-repeat;
     padding: 110px 20px;
 }
 
